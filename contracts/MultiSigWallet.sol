@@ -1,4 +1,4 @@
-pragma solidity ^0.4.15;
+pragma solidity ^0.4.13;
 
 
 /// @title Multisignature wallet - Allows multiple parties to agree on transactions before execution.
@@ -52,12 +52,12 @@ contract MultiSigWallet {
     }
 
     modifier confirmed(uint transactionId, address owner) {
-        assert (!confirmations[transactionId][owner];
+        assert(!confirmations[transactionId][owner]);
         _;
     }
 
     modifier notConfirmed(uint transactionId, address owner) {
-        assert (confirmations[transactionId][owner];
+        assert(confirmations[transactionId][owner]);
         _;
     }
 

@@ -13,6 +13,8 @@ contract MortgageContract is MultiSigWallet {
 
     int monthly_payment;
 
+    uint signTimestamp;
+
     enum state {under_construction, rented_out, paid}
 
     address public borrower;
@@ -24,12 +26,8 @@ contract MortgageContract is MultiSigWallet {
         bool lender_signature;
     }
 
-    ///API Sign.Me
-
-    function sign_Deal() {
-        require();
-        uint moment_Deal = now;
-        require((Verify.borrower_signature && Verify.lender_signature) = True);
+    function signDeal(address borrower, address lender) {
+//        require(Verify.borrower_signature && Verify.lender_signature);
 
     }
 
@@ -45,15 +43,18 @@ contract MortgageContract is MultiSigWallet {
 
     Mortgage mortgage;
 
-    mortgage.balance_borrower = price;
+    function setBalanceBorrower (uint balance){
+        mortgage.balance_borrower = balance;
+    }
 
-    function checkClosed returns (bool) {
+
+    function checkClosed() returns (bool status) {
 
         bool returnStatus = false;
 
         for (uint i = 0; i < time; i++) {
             mortgage.balance_borrower = price - i * monthly_payment;
-            if (balance_borrower > 0) {
+            if (mortgage.balance_borrower > 0) {
                     mortgage.status_borrower = false;
             } else {
                 mortgage.status_borrower = true;
