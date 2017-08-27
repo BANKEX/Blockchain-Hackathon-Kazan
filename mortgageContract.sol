@@ -1,5 +1,4 @@
-pragma solidity ^0.4.4;
-
+pragma solidity ^0.4.15
 
 contract MortgageContract {
 
@@ -24,7 +23,7 @@ contract MortgageContract {
 
     Mortgage mortgage;
 
-    function checkClosed returns (bool) {
+    function getStatusOfMortage() returns (bool status) {
 
         bool returnStatus = false;
 
