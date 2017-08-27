@@ -9,9 +9,9 @@ contract MortgageContract is MultiSigWallet {
 
     uint price;
 
-    int time;
+    uint time;
 
-    int monthly_payment;
+    uint monthly_payment;
 
     uint signTimestamp;
 
@@ -26,13 +26,14 @@ contract MortgageContract is MultiSigWallet {
         bool lender_signature;
     }
 
-    function signDeal(address borrower, address lender) {
+    function signDeal(address _borrower, address _lender) {
 //        require(Verify.borrower_signature && Verify.lender_signature);
 
     }
 
     function getMonthlyPayment () payable returns (bool) {
-        lender.send(this.monthly_payment);
+        /*lender.send(this.monthly_payment);*/
+        return true;
     }
 
     struct Mortgage {
