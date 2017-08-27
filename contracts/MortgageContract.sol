@@ -1,5 +1,7 @@
 pragma solidity ^0.4.15
 
+import "./MultiSigWallet.sol";
+
 contract MortgageContract is MultiSigWallet {
 
     uint mortgage_id;
