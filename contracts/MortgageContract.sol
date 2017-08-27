@@ -1,6 +1,6 @@
 pragma solidity ^0.4.15
 
-contract MortgageContract {
+contract MortgageContract is MultiSigWallet {
 
     uint mortgage_id;
 
