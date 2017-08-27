@@ -1,37 +1,51 @@
 pragma solidity ^0.4.4;
 
-contract ipoteka {
 
-   uint ipoteka_id;
+contract MortgageContract {
+
+    uint mortgage_id;
+
     uint price;
+
     int srok_ipoteki;
+
     int monthly_payment;
     enum state {under_construction, rented_out, paid}
 
-   address public borrower;
+    address public borrower;
+
     address public lender;
-    uint[] zakladnaya;
-    struct zakladnaya {
-        uint balance_borrower;
-        bool status_borrower;
-        uint fine;
+
+    struct Mortgage {
+    uint balance_borrower;
+    bool status_borrower;
+    uint fine;
     }
 
-   function check {
-        for (uint i = 0; i < srok_ipoteki; i++){
-          zakladnaya[0] == price - i*monthly_payment;
-          zakladnaya[1] == true;
+    Mortgage mortgage;
 
-       }
+    function checkClosed returns (bool) {
+
+        bool returnStatus = false;
+
+        for (uint i = 0; i < srok_ipoteki; i++) {
+            zakladnaya.balance_borrower = price - i * monthly_payment;
+            if (zakladnaya.status_borrower == true) {
+                returnStatus = true;
+                break;
+            }
+
+        }
+        return returnStatus;
     }
 
 
-   address public construction;
+    address public construction;
 
-   event ipoteka_paid()
+    event ipoteka_paid();
 
 
- function ipoteka() {
-    // constructor
-  }
+    function ipoteka() {
+        // constructor
+    }
 }
