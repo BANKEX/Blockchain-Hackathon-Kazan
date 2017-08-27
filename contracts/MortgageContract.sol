@@ -26,7 +26,7 @@ contract MortgageContract is MultiSigWallet {
 
     ///API Sign.Me
 
-    function sign_Deal {
+    function sign_Deal() {
         require();
         uint moment_Deal = now;
         require((Verify.borrower_signature && Verify.lender_signature) = True);
@@ -46,7 +46,6 @@ contract MortgageContract is MultiSigWallet {
     Mortgage mortgage;
 
     mortgage.balance_borrower = price;
-
 
     function checkClosed returns (bool) {
 
