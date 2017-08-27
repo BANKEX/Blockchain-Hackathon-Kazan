@@ -11,8 +11,11 @@
     "url": "https://github.com/BankEx/Blockchain-Hackathon-Kazan"
   },
   "author": "BankEx",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "ejs-locals": "^1.0.2",
     "express": "^4.15.3"
   }
 }

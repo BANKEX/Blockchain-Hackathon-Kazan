@@ -1,10 +1,24 @@
 var express = require('express');
+var ejsLocals = require('ejs-locals');
 var app = express();
+var apiV1 = require('./api.v1');
+pages = require(__dirname + '/controllers/pages')
 
-app.get('/', function (req, res) {
-  res.send("Main page").end();
+app.engine('ejs', ejsLocals)
+app.set('views', __dirname + '/views')
+app.set('view engine', 'ejs')
+
+app.use(express.static(__dirname + '/public'));
+
+app.use('/api/v1', apiV1);
+
+// mount routes
+app.get('/', function (req, res)
+	{ res.redirect('home')
 });
 
+app.get('/home', pages.home);
+
 app.listen(3000, function () {
-  console.log('Server is listening on port 3000');
+  console.log('Server is listening on port 3000...');
 });
