@@ -1,4 +1,4 @@
-pragma solidity 0.4.4;
+pragma solidity ^0.4.15;
 
 
 /// @title Multisignature wallet - Allows multiple parties to agree on transactions before execution.
@@ -32,20 +32,17 @@ contract MultiSigWallet {
     }
 
     modifier onlyWallet() {
-        if (msg.sender != address(this))
-        throw;
+        assert(msg.sender != address(this));
         _;
     }
 
     modifier ownerDoesNotExist(address owner) {
-        if (isOwner[owner])
-        throw;
+        assert(isOwner[owner]);
         _;
     }
 
     modifier ownerExists(address owner) {
-        if (!isOwner[owner])
-        throw;
+        assert(!isOwner[owner]);
         _;
     }
 
