@@ -18,9 +18,11 @@ contract Mortgage {
     mapping (uint => Edition) public editions;
     mapping (uint => mapping (address => bool)) public confirmations;
     mapping (address => bool) public isOwner;
+    mapping (address => bool) public isKYCChecked;
     address[] public parties;
     address public rosreestr;
     address public depositary;
+    address public KYCprovider;
     uint public UID;
     uint public required;
     uint editionsCount=1;
@@ -67,6 +69,11 @@ contract Mortgage {
 
     modifier ownerExists(address owner) {
         require(isOwner[owner]);
+        _;
+    }
+
+    modifier addressByKYCChecked(address owner) {
+        require(isKYCChecked[owner]);
         _;
     }
 
