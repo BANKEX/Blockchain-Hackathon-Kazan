@@ -216,7 +216,7 @@ web3.eth.getAccounts(async function (err, accounts) {
     allAccounts = accounts;
     await artifactor.save({contract_name: "Mortgage",  abi: abi, unlinked_binary: bytecode});
     // Contract = new TruffleContract(require("../../build/contracts/Mortgage.json"));
-    Contract = new TruffleContract(require("../build/contracts/Mortgage.json"));
+    Contract = new TruffleContract(require("../../build/contracts/Mortgage.json"));
     [Contract].forEach(function(contract) {
         contract.setProvider(web3.currentProvider);
         contract.defaults({
