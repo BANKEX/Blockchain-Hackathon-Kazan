@@ -240,15 +240,15 @@ contract Mortgage {
         for (uint i=0; i<parties.length; i++) {
             if (confirmations[editionID][parties[i]])
                 count += 1;
-            if (confirmations[editionID][rosreestr]){
-                count += 1;
-            }
-            if (isCoveredDeposit && confirmations[editionID][depositary]){
-                count += 1;
-            }
-            if (count == required)
-                return true;
         }
+        if (confirmations[editionID][rosreestr]){
+            count += 1;
+        }
+        if (isCoveredDeposit && confirmations[editionID][depositary]){
+            count += 1;
+        }
+        if (count == required)
+        return true;
     }
 
     // /*
