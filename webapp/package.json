@@ -1,0 +1,26 @@
+{
+  "name": "blockchain-hacathon-kazan",
+  "version": "1.0.0",
+  "description": "Mortgage securities repository",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BankEx/Blockchain-Hackathon-Kazan"
+  },
+  "author": "BankEx",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "ejs-locals": "^1.0.2",
+    "ethereumjs-testrpc": "^4.1.1",
+    "express": "^4.15.3",
+    "solc": "^0.4.16",
+    "truffle-artifactor": "^2.1.5",
+    "truffle-contract": "^2.0.5",
+    "web3": "^0.20.1"
+  }
+}

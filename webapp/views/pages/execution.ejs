@@ -1,0 +1,50 @@
+<% layout('../layout') -%>
+<h1>Исполнениe контракта ипотечной закладной<br><span class="text-muted"><%= address %></span></h1>
+<hr>
+<h2>Текущий статус</h2>
+<br>
+<div class="col-md-10 col-md-offset-1">
+    <form id="execution" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label text-muted">Оригинатор</label>
+            <label class="col-sm-8 form-control-static">Создан контракт <%= address %></label>
+            <div class="col-sm-2">
+                <i class="fa fa-2x fa-check-square-o"></i>
+            </div>
+        </div>
+        <div class="form-group" style="display: none" id="exec-step-2">
+            <label class="col-sm-2 control-label text-muted">Залогодержатель</label>
+            <label class="col-sm-8 form-control-static">Внесено изменение % ставки по договору </label>
+            <div class="col-sm-2">
+                <i class="fa fa-2x fa-check-square-o"></i>
+            </div>
+        </div>
+        <div class="form-group" style="display: none" id="exec-step-3">
+            <label class="col-sm-2 control-label text-muted">Залогодатель</label>
+            <label class="col-sm-8 form-control-static">Подтверждено</label>
+            <div class="col-sm-2">
+                <i class="fa fa-2x fa-check-square-o"></i>
+            </div>
+        </div>
+        <div class="form-group" style="display: none" id="exec-step-4">
+            <label class="col-sm-2 control-label text-muted">Росреестр</label>
+            <label class="col-sm-8 form-control-static">Подтверждено</label>
+            <div class="col-sm-2">
+                <i class="fa fa-2x fa-check-square-o"></i>
+            </div>
+        </div>
+        <div class="form-group" id="exec-progress">
+            <label class="col-sm-2 control-label text-muted"></label>
+            <label class="col-sm-8 form-control-static text-muted">Ожидание действий контрагентов</label>
+            <div class="col-sm-2">
+                <i class="fa fa-spinner fa-spin"></i>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group" style="display: none" id="exec-submit">
+            <div class="col-sm-10 col-sm-offset-2">
+                <button type="submit" class="btn btn-success">Перейти к закрытию<span id="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
+            </div>
+        </div>
+    </form>
+</div>
