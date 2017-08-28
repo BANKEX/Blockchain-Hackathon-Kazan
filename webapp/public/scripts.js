@@ -17,6 +17,42 @@ $("document").ready(function () {
             window.location = "/execution/" + data.address;
         }});
     });
+
+    setTimeout(function () {
+        $("#exec-step-2").show();
+    }, 2000);
+
+    setTimeout(function () {
+        $("#exec-step-3").show();
+    }, 5000);
+
+    setTimeout(function () {
+        $("#exec-step-4").show();
+    }, 6000);
+
+    setTimeout(function () {
+        $("#exec-progress").hide();
+        $("#exec-submit").show();
+    }, 9000);
+
+    $("form#execution").submit(function (event) {
+        event.preventDefault();
+
+        var unindexed_array = $(this).serializeArray();
+        var indexed_array = {};
+
+        $.map(unindexed_array, function(n, i){
+            indexed_array[n['name']] = n['value'];
+        });
+
+        $("#spinner").show();
+
+        setTimeout(function () {
+            $("#spinner").hide();
+
+            window.location = "/finalizing/" + data.address;
+        }, 1400);
+    });
 });
 
 function addCoborrower() {
