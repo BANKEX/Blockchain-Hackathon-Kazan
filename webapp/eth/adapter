@@ -2,7 +2,7 @@ const assert = require('assert');
 var fs = require("fs");
 var solc = require('solc');
 var Artifactor = require("truffle-artifactor"); 
-const input = fs.readFileSync("../contracts/Mortgage.sol");
+const input = fs.readFileSync("../contracts/Mortgage.sol"); // for npm start
 const output = solc.compile(input.toString(), 1);
 console.log(output.errors);
 const bytecode = output.contracts[':Mortgage'].bytecode;
