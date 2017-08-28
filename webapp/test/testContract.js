@@ -3,7 +3,7 @@ const assert = require('assert');
 var fs = require("fs");
 var solc = require('solc');
 var Artifactor = require("truffle-artifactor"); 
-const input = fs.readFileSync("./contracts/Mortgage.sol");
+const input = fs.readFileSync("../../contracts/Mortgage.sol");
 const output = solc.compile(input.toString(), 1);
 console.log(output.errors);
 const bytecode = output.contracts[':Mortgage'].bytecode;
@@ -39,7 +39,7 @@ var tmp_func = web3.eth.getBalance;
 delete tmp_func['call'];
 const getBlockNumberPromisified= util.promisify(web3.eth.getBlockNumber);
 const getBalancePromisified = util.promisify(tmp_func).bind(web3.eth);
-const artifactor = new Artifactor("./build/contracts");
+const artifactor = new Artifactor("../../build/contracts");
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -226,42 +226,42 @@ function populate_def_acc(){
     }
 }
 
-    web3.eth.getAccounts(async function(err, accounts) {
-        if (err || !accounts){
-            console.log(err);
-            console.log("Second entry")
-            return;
-        }
-        allAccounts = accounts;
-        await artifactor.save({contract_name: "Mortgage",  abi: abi, unlinked_binary: bytecode});
-        Contract = new TruffleContract(require("../build/contracts/Mortgage.json"));
-        [Contract].forEach(function(contract) {
-            contract.setProvider(web3.currentProvider);
-            contract.defaults({
-            gas: 3.5e6,
-            from: allAccounts[0]
-            })
-        });
-        try {
-        await deployContract([accounts[0], accounts[1]], accounts[2], accounts[3])();
-        await getUID()();
-        await getRequired()();
-        await createEdition()();
-        await appendToEdition("test", 1, "test",1)();
-        await getNumFieldsInEdition(1)();
-        await getEditionContent(0,1)();
-        await finalizeEdition(1)();
-        await confirmEdition(1, accounts[0])();
-        await confirmEdition(1, accounts[1])();
-        await confirmEdition(1, accounts[2])();
-        await confirmEdition(1, accounts[3])();
-        await getNumFields()();
-        await getLastAcceptedEdition()();
-        await getFieldContent(0)();
-        }
-        catch (err){
-            console.log(err);
-        }
-        
+web3.eth.getAccounts(async function(err, accounts) {
+    if (err || !accounts){
+        console.log(err);
+        console.log("Second entry")
+        return;
+    }
+    allAccounts = accounts;
+    await artifactor.save({contract_name: "Mortgage",  abi: abi, unlinked_binary: bytecode});
+    Contract = new TruffleContract(require("../../build/contracts/Mortgage.json"));
+    [Contract].forEach(function(contract) {
+        contract.setProvider(web3.currentProvider);
+        contract.defaults({
+        gas: 3.5e6,
+        from: allAccounts[0]
+        })
     });
+    try {
+    await deployContract([accounts[0], accounts[1]], accounts[2], accounts[3])();
+    await getUID()();
+    await getRequired()();
+    await createEdition()();
+    await appendToEdition("test", 1, "test",1)();
+    await getNumFieldsInEdition(1)();
+    await getEditionContent(0,1)();
+    await finalizeEdition(1)();
+    await confirmEdition(1, accounts[0])();
+    await confirmEdition(1, accounts[1])();
+    await confirmEdition(1, accounts[2])();
+    await confirmEdition(1, accounts[3])();
+    await getNumFields()();
+    await getLastAcceptedEdition()();
+    await getFieldContent(0)();
+    }
+    catch (err){
+        console.log(err);
+    }
+    
+});
 

@@ -15,14 +15,14 @@ const util = require('util');
 // delete tmp_func['call'];
 // const getBlockNumberPromisified= util.promisify(web3.eth.getBlockNumber);
 // const getBalancePromisified = util.promisify(tmp_func).bind(web3.eth);
-const artifactor = new Artifactor("./build/contracts");
+const artifactor = new Artifactor("../../build/contracts");
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function main() {
     console.log("Compiling artifact");
-    var input = fs.readFileSync("./contracts/Mortgage.sol");
+    var input = fs.readFileSync("../../contracts/Mortgage.sol");
     var output = solc.compile(input.toString(), 1);
     console.log(output.errors);
     var bytecode = output.contracts[':Mortgage'].bytecode;
