@@ -28,6 +28,7 @@ contract EditorsHolder is PartiesHolder {
 
     mapping (uint => Edition) public editions;
     uint editionsCount=1;
+    mapping (address => bool) public isOwner;
 
     modifier transactionExists(uint editionID) {
         require(editions[editionID]._id != 0);
@@ -38,6 +39,19 @@ contract EditorsHolder is PartiesHolder {
         require(!editions[editionID].accepted);
         _;
     }
+
+
+    modifier ownerDoesNotExist(address owner) {
+        require(!isOwner[owner]);
+        _;
+    }
+
+    modifier ownerExists(address owner) {
+        require(isOwner[owner]);
+        _;
+    }
+
+
 
     function createEdition()
     public
@@ -78,7 +92,7 @@ contract Mortgage is EditorsHolder {
 
 
     mapping (uint => mapping (address => bool)) public confirmations;
-    mapping (address => bool) public isOwner;
+
     mapping (address => bool) public isKYCChecked;
 
     address public rosreestr;
@@ -105,26 +119,6 @@ contract Mortgage is EditorsHolder {
 
     modifier onlyWallet() {
         require(msg.sender == address(this));
-        _;
-    }
-
-    modifier ownerDoesNotExist(address owner) {
-        require(!isOwner[owner]);
-        _;
-    }
-
-    modifier ownerExists(address owner) {
-        require(isOwner[owner]);
-        _;
-    }
-
-    modifier addressByKYCChecked(address owner) {
-        require(isKYCChecked[owner]);
-        _;
-    }
-
-    modifier transactionExists(uint editionID) {
-        require(editions[editionID]._id != 0);
         _;
     }
 
@@ -256,7 +250,7 @@ contract Mortgage is EditorsHolder {
             }
             Edition storage proposedEdition = editions[editionID];
 
-        //todo
+            //todo
             for (uint i = 0; i < proposedEdition.fieldNamesCount; i++) {
                 if (fieldNameAlreadyPresent[proposedEdition.fieldNames[i]] == 0) {
                     fieldNameAlreadyPresent[proposedEdition.fieldNames[i]] = fieldNamesCount;
@@ -278,7 +272,7 @@ contract Mortgage is EditorsHolder {
         uint count = 0;
         for (uint i=0; i<parties.length; i++) {
             if (confirmations[editionID][parties[i]])
-                count += 1;
+            count += 1;
         }
         if (confirmations[editionID][rosreestr]){
             count += 1;
