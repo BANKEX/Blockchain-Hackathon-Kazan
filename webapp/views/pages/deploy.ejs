@@ -6,41 +6,46 @@
         <div class="form-group">
             <label for="bank" class="col-sm-2 control-label">Банк</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="bank" placeholder="Адрес банка" value="<%= bank %>">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="bank" class="col-sm-2 control-label">Заёмщики</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="borrower" placeholder="Адрес заёмщика" value="<%= borrowers[0] %>">
-            </div>
-        </div>
-        <% for (var i = 1; i < borrowers.length; i++) { %>
-            <div class="form-group">
-                <div class="col-sm-10 col-sm-offset-2">
-                    <input type="text" class="form-control" id="borrower" placeholder="Адрес заёмщика" value="<%= borrowers[i] %>">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="bank" placeholder="Адрес банка" value="<%= bank %>">
+                    <span class="input-group-btn"><button type="button" class="btn btn-default" onclick="setMetamaskAddress(this)" title="Получить из Metamask">@</button></span>
                 </div>
             </div>
-        <% } %>
-        <div class="form-group">
-            <div class="col-sm-10 col-sm-offset-2"><button class="btn btn-sm btn-default">&plus;</button></div>
         </div>
         <div class="form-group">
-            <label for="bank" class="col-sm-2 control-label">Депозитарий</label>
+            <label for="borrower" class="col-sm-2 control-label">Заёмщик</label>
+            <div class="col-sm-10"> 
+                <div class="input-group">
+                    <input type="text" class="form-control" id="borrower" placeholder="Адрес заёмщика" value="<%= borrower %>">
+                    <span class="input-group-btn"><button type="button" class="btn btn-default" onclick="setMetamaskAddress(this)" title="Получить из Metamask">@</button></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" id="extra">
+            <div class="col-sm-10 col-sm-offset-2"><button type="button" class="btn btn-sm btn-default" onclick="addCoborrower()">&plus;</button></div>
+        </div>
+        <div class="form-group">
+            <label for="depository" class="col-sm-2 control-label">Депозитарий</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="depository" placeholder="Адрес депозитария" value="<%= depository %>">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="depository" placeholder="Адрес депозитария" value="<%= depository %>">
+                    <span class="input-group-btn"><button type="button" class="btn btn-default" onclick="setMetamaskAddress(this)" title="Получить из Metamask">@</button></span>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <label for="bank" class="col-sm-2 control-label">Росреестр</label>
+            <label for="depository" class="col-sm-2 control-label">Росреестр</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="registry" placeholder="Адрес Росреестра" value="<%= registry %>">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="registry" placeholder="Адрес Росреестра" value="<%= registry %>">
+                    <span class="input-group-btn"><button type="button" class="btn btn-default" onclick="setMetamaskAddress(this)" title="Получить из Metamask">@</button></span>
+                </div>
             </div>
         </div>
         <hr>
         <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
-                <button class="btn btn-success" onclick="alert('ok');">Опубликовать</button>
+                <button type="button" class="btn btn-success" onclick="alert('ok');">Опубликовать</button>
             </div>
         </div>
     </form>
