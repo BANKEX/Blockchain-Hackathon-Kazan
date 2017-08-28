@@ -14,21 +14,23 @@ $("document").ready(function () {
         $.ajax({ url: '/api/v1/contracts/deploy', type: 'POST', contentType: 'application/json', data: JSON.stringify(indexed_array), success: function (data) {
             $("#spinner").hide();
 
+            localStorage.setItem('address', data.address);
+
             window.location = "/execution/" + data.address;
         }});
     });
 
     setTimeout(function () {
         $("#exec-step-2").show();
-    }, 2000);
+    }, 4000);
 
     setTimeout(function () {
         $("#exec-step-3").show();
-    }, 5000);
+    }, 6000);
 
     setTimeout(function () {
         $("#exec-step-4").show();
-    }, 6000);
+    }, 7000);
 
     setTimeout(function () {
         $("#exec-progress").hide();
@@ -38,19 +40,43 @@ $("document").ready(function () {
     $("form#execution").submit(function (event) {
         event.preventDefault();
 
-        var unindexed_array = $(this).serializeArray();
-        var indexed_array = {};
+        $("#spinner").show();
 
-        $.map(unindexed_array, function(n, i){
-            indexed_array[n['name']] = n['value'];
-        });
+        setTimeout(function () {
+            $("#spinner").hide();
+
+            console.log(window.location);
+            window.location = "/finalization/" + localStorage.getItem('address');
+            console.log(window.location);
+        }, 2200);
+    });
+
+    setTimeout(function () {
+        $("#fin-step-1").show();
+    }, 4000);
+
+    setTimeout(function () {
+        $("#fin-step-2").show();
+    }, 6000);
+
+    setTimeout(function () {
+        $("#fin-step-3").show();
+    }, 7000);
+
+    setTimeout(function () {
+        $("#fin-progress").hide();
+        $("#fin-submit").show();
+    }, 9000);
+
+    $("form#finalization").submit(function (event) {
+        event.preventDefault();
 
         $("#spinner").show();
 
         setTimeout(function () {
             $("#spinner").hide();
 
-            window.location = "/finalizing/" + data.address;
+            window.location = window.location = "/end/" + localStorage.getItem('address');
         }, 1400);
     });
 });

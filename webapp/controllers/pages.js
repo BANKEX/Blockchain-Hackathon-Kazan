@@ -22,3 +22,17 @@ exports.execution = function (req, res) {
 		address: req.params.address
 	})
 }
+
+exports.finalization = function (req, res) {
+	res.render('pages/finalization', {
+		title: 'Статус завершения',
+		address: req.params.address
+	})
+}
+
+exports.end = function (req, res) {
+	res.render('pages/end', {
+		title: 'Завершено',
+		address: req.params.address
+	})
+}

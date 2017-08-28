@@ -21,6 +21,8 @@ app.get('/home', pages.home);
 app.get('/deploy', pages.deploy);
 
 app.get('/execution/:address', pages.execution);
+app.get('/finalization/:address', pages.finalization);
+app.get('/end/:address', pages.end);
 
 app.listen(3000, function () {
   console.log('Server is listening on port 3000...');
