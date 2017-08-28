@@ -1,7 +1,5 @@
 pragma solidity ^0.4.15;
 
-
-  
 contract Mortgage {
 
     uint constant public MAX_OWNER_COUNT = 50;
@@ -32,7 +30,6 @@ contract Mortgage {
     mapping (string => uint) fieldNameAlreadyPresent;
     uint public fieldNamesCount = 0;
     uint public lastAcceptedEdition = 0;
-
 
     struct Field {
         uint fieldTag;
@@ -134,13 +131,13 @@ contract Mortgage {
             isOwner[parties[i]]=true;
         }
         isOwner[rosreestr]=true;
-        
+
     }
 
     function createEdition()
         public
         ownerExists(msg.sender)
-        returns (uint editionID) 
+        returns (uint editionID)
     {
         Edition memory newEdition = Edition({
             _id : editionsCount,
@@ -181,7 +178,7 @@ contract Mortgage {
             fieldTag: _fieldTag,
             fieldValue: _fieldValue
         });
-        edition.fields[_fieldName] = newField; 
+        edition.fields[_fieldName] = newField;
         edition.fieldNamesCount += 1;
         return true;
     }
@@ -218,6 +215,8 @@ contract Mortgage {
                 return;
             }
             Edition storage proposedEdition = editions[editionID];
+
+        //todo
             for (uint i = 0; i < proposedEdition.fieldNamesCount; i++) {
                 if (fieldNameAlreadyPresent[proposedEdition.fieldNames[i]] == 0) {
                     fieldNameAlreadyPresent[proposedEdition.fieldNames[i]] = fieldNamesCount;
@@ -278,7 +277,7 @@ contract Mortgage {
         }
     }
 
-    function getNumberOfEditions() 
+    function getNumberOfEditions()
         public
         constant
         returns(uint number)
@@ -294,7 +293,7 @@ contract Mortgage {
         return editions[_editionID].fieldNamesCount;
     }
 
-    function getEditionContent(uint _fieldNumber, uint _editionID) 
+    function getEditionContent(uint _fieldNumber, uint _editionID)
         public
         constant
         returns(string field, uint tag, string value)
@@ -371,7 +370,7 @@ contract Mortgage {
             _transactionIds[i - from] = transactionIdsTemp[i];
     }
 
-    function getFieldContent(uint _fieldNumber) 
+    function getFieldContent(uint _fieldNumber)
         public
         constant
         returns(string field, uint tag, string value)
