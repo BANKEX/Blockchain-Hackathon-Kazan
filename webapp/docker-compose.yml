@@ -5,6 +5,7 @@ services:
     volumes:
       - ./:/usr/src/app
       - ../contracts/:/usr/src/contracts
+      - ../build/:/usr/src/build
     working_dir: /usr/src/app
     command: sh -c 'npm install; npm install -g nodemon; nodemon -e js,jade index.js'
     ports:

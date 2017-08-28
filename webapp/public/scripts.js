@@ -11,10 +11,10 @@ $("document").ready(function () {
 
         $("#spinner").show();
 
-        $.ajax({ url: 'api/v1/contracts/deploy', type: 'POST', contentType: 'application/json', data: JSON.stringify(indexed_array), success: function (data) {
+        $.ajax({ url: '/api/v1/contracts/deploy', type: 'POST', contentType: 'application/json', data: JSON.stringify(indexed_array), success: function (data) {
             $("#spinner").hide();
 
-            alert("Контракт успешно опубликован по адресу\n" + data.address);
+            window.location = "/execution/" + data.address;
         }});
     });
 });

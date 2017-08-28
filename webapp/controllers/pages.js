@@ -15,3 +15,10 @@ exports.deploy = function (req, res) {
 		registry: ethAdapter.accounts[3],
 	})
 }
+
+exports.execution = function (req, res) {
+	res.render('pages/execution', {
+		title: 'Статус исполнения',
+		address: req.params.address
+	})
+}

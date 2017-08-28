@@ -39,7 +39,7 @@ var tmp_func = web3.eth.getBalance;
 delete tmp_func['call'];
 const getBlockNumberPromisified= util.promisify(web3.eth.getBlockNumber);
 const getBalancePromisified = util.promisify(tmp_func).bind(web3.eth);
-const artifactor = new Artifactor("../../build/contracts");
+const artifactor = new Artifactor("../build/contracts");
 
 function getBalance(address) {
     return async function(){
@@ -215,7 +215,8 @@ web3.eth.getAccounts(async function (err, accounts) {
     }
     allAccounts = accounts;
     await artifactor.save({contract_name: "Mortgage",  abi: abi, unlinked_binary: bytecode});
-    Contract = new TruffleContract(require("../../build/contracts/Mortgage.json"));
+    // Contract = new TruffleContract(require("../../build/contracts/Mortgage.json"));
+    Contract = new TruffleContract(require("../build/contracts/Mortgage.json"));
     [Contract].forEach(function(contract) {
         contract.setProvider(web3.currentProvider);
         contract.defaults({
