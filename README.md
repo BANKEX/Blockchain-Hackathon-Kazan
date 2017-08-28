@@ -2,6 +2,10 @@
 
 > Конкурсный проект для хакатона "Блокчейн - новая нефть России", Казань, 27-29 августа 2017
 
+![](https://github.com/BankEx/Blockchain-Hackathon-Kazan/blob/master/Images/BankEx.jpg?raw=true)
+
+![](https://github.com/BankEx/Blockchain-Hackathon-Kazan/blob/master/Images/BankEx-2.jpg?raw=true)
+
 ## Контракты
 
 ```bash
