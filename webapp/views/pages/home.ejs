@@ -1,10 +1,6 @@
 <% layout('../layout') -%>
-<div style="margin-top: 100px;">
-    <div class="row">
-        <% for (var i = 0; i < actions.length; i++) { %>
-            <div class="col-md-6">
-                <a class="btn btn-lg btn-primary btn-block" href="register/<%= actions[i].url %>"><%= actions[i].title %></a>
-            </div>
-        <% } %>
-    </div>
+<div style="margin-top: 250px;">
+	<div class="col-md-6 col-md-offset-3">
+		<a class="btn btn-lg btn-primary btn-block" href="deploy/">Создать контракт</a>
+	</div>
 </div>

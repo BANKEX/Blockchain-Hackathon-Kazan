@@ -12,12 +12,13 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/api/v1', apiV1);
 
-// mount routes
 app.get('/', function (req, res)
 	{ res.redirect('home')
 });
 
 app.get('/home', pages.home);
+
+app.get('/deploy', pages.deploy);
 
 app.listen(3000, function () {
   console.log('Server is listening on port 3000...');
