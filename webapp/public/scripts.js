@@ -20,22 +20,22 @@ $("document").ready(function () {
         }});
     });
 
-    setTimeout(function () {
-        $("#exec-step-2").show();
-    }, 4000);
+    // setTimeout(function () {
+    //     $("#exec-step-2").show();
+    // }, 4000);
 
-    setTimeout(function () {
-        $("#exec-step-3").show();
-    }, 6000);
+    // setTimeout(function () {
+    //     $("#exec-step-3").show();
+    // }, 6000);
 
-    setTimeout(function () {
-        $("#exec-step-4").show();
-    }, 7000);
+    // setTimeout(function () {
+    //     $("#exec-step-4").show();
+    // }, 7000);
 
-    setTimeout(function () {
-        $("#exec-progress").hide();
-        $("#exec-submit").show();
-    }, 9000);
+    // setTimeout(function () {
+    //     $("#exec-progress").hide();
+    //     $("#exec-submit").show();
+    // }, 9000);
 
     $("form#execution").submit(function (event) {
         event.preventDefault();
@@ -61,12 +61,9 @@ $("document").ready(function () {
 
     setTimeout(function () {
         $("#fin-step-3").show();
-    }, 7000);
-
-    setTimeout(function () {
         $("#fin-progress").hide();
         $("#fin-submit").show();
-    }, 9000);
+    }, 7000);
 
     $("form#finalization").submit(function (event) {
         event.preventDefault();
@@ -77,14 +74,30 @@ $("document").ready(function () {
             $("#spinner").hide();
 
             window.location = window.location = "/end/" + localStorage.getItem('address');
-        }, 1400);
+        }, 1000 + Math.random(1000));
     });
 });
 
-function addCoborrower() {
-    var el = $('<div class="form-group"><label for="coborrower" class="col-sm-2 control-label">Созаёмщик</label><div class="col-sm-10"><div class="input-group"><input type="text" class="form-control" id="coborrower" placeholder="Адрес созаёмщика" name="coborrower" value=""><span class="input-group-btn"><button type="button" class="btn btn-default" onclick="setMetamaskAddress(this)" title="Получить из Metamask">@</button></span></div></div>');
-    var target = $('#extra');
-    target.replaceWith(el);
+var stepsDone = 0;
+
+function onExecuteStep(el) {
+    var spinner = $(el).find('.fa');
+    var actionTodo = $(el).parent();
+    var actionDone = $(el).parent().next();
+    var checkbox = $(el).parent().parent().find('.fa-square-o');
+    var submit = $(el).parent().parent().parent().find('button[type=submit]')
+
+    spinner.show();
+
+    setTimeout(function () {
+        spinner.hide();
+        actionTodo.hide();
+        actionDone.show();
+        checkbox.removeClass('fa-square-o').addClass('fa-check-square-o');
+
+        if (++stepsDone >= 3)
+            submit.prop("disabled", false);
+    }, 1400);
 }
 
 function setMetamaskAddress(el) {

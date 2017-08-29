@@ -75,12 +75,6 @@ function deployContract(parties, rosreestr, depository) {
     }
 }
 
-// function deployContract(parties, rosreestr, depository) {
-//         DeployedContract = await Contract.new(parties, rosreestr, depository);
-//         console.log("Deployed at " + DeployedContract.address);
-//     }
-// }
-
 function createEdition() {
     return async function() {
         console.log("Creating edition...");
@@ -215,7 +209,6 @@ web3.eth.getAccounts(async function (err, accounts) {
     }
     allAccounts = accounts;
     await artifactor.save({contract_name: "Mortgage",  abi: abi, unlinked_binary: bytecode});
-    // Contract = new TruffleContract(require("../../build/contracts/Mortgage.json"));
     Contract = new TruffleContract(require("../../build/contracts/Mortgage.json"));
     [Contract].forEach(function(contract) {
         contract.setProvider(web3.currentProvider);
@@ -227,23 +220,15 @@ web3.eth.getAccounts(async function (err, accounts) {
 
     exports.accounts = accounts;
 
-    // exports.deployContract = function (a, b, c) {
-    //     await deployContract(a, b, c)();
-    // };
-
     exports.deployContract = async function (a, b, c, callback) {
+        try {
+            await deployContract(a, b, c)();
 
-
-        // return async function (a, b, c) {}
-            try {
-                await deployContract(a, b, c)();
-
-                callback(DeployedContract.address);
-            }
-            catch (err) {
-                console.log(err);
-            } 
-        // }
+            callback(DeployedContract.address);
+        }
+        catch (err) {
+            console.log(err);
+        }
     };
 
     // try {
