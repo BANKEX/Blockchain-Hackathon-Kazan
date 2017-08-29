@@ -53,17 +53,17 @@ $("document").ready(function () {
 
     setTimeout(function () {
         $("#fin-step-1").show();
-    }, 4000);
+    }, 8000);
 
     setTimeout(function () {
         $("#fin-step-2").show();
-    }, 6000);
+    }, 12000);
 
     setTimeout(function () {
         $("#fin-step-3").show();
         $("#fin-progress").hide();
         $("#fin-submit").show();
-    }, 7000);
+    }, 18000);
 
     $("form#finalization").submit(function (event) {
         event.preventDefault();
@@ -74,7 +74,7 @@ $("document").ready(function () {
             $("#spinner").hide();
 
             window.location = window.location = "/end/" + localStorage.getItem('address');
-        }, 1000 + Math.random(1000));
+        }, 2000 + Math.random(1000));
     });
 });
 
@@ -97,7 +97,7 @@ function onExecuteStep(el) {
 
         if (++stepsDone >= 3)
             submit.prop("disabled", false);
-    }, 1400);
+    }, 2000 + Math.random(1000));
 }
 
 function setMetamaskAddress(el) {
