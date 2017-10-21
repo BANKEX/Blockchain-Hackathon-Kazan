@@ -1,37 +1,37 @@
 <% layout('../layout') -%>
-<h1>Исполнениe контракта ипотечной закладной<br><span class="text-muted"><%= address %></span></h1>
+<h1>Mortgage Bond Contract Execution<br><span class="text-muted"><%= address %></span></h1>
 <hr>
-<h2>Текущий статус</h2>
+<h2>Current Status</h2>
 <br>
 <div class="col-md-10 col-md-offset-1">
     <form id="execution" class="form-horizontal">
         <div class="form-group">
-            <label class="col-sm-2 control-label text-muted">Оригинатор</label>
-            <label class="col-sm-8 form-control-static">Создан контракт <%= address %></label>
+            <label class="col-sm-2 control-label text-muted">Originator</label>
+            <label class="col-sm-8 form-control-static">Contract deployed at <%= address %></label>
             <div class="col-sm-2">
                 <i class="fa fa-2x fa-check-square-o"></i>
             </div>
         </div>
         <div class="form-group" id="exec-step-1">
-            <label class="col-sm-2 control-label text-muted">Залогодержатель</label>
-            <label class="col-sm-8 action-todo"><button type="button" class="btn btn-info" onclick="onExecuteStep(this)">Внести изменение % ставки по договору <i class="fa fa-spinner fa-spin" style="display: none"></i></span></button></label>
-            <label class="col-sm-8 form-control-static action-done" style="display: none">Внесено изменение % ставки по договору</label>
+            <label class="col-sm-2 control-label text-muted">Pledgee</label>
+            <label class="col-sm-8 action-todo"><button type="button" class="btn btn-info" onclick="onExecuteStep(this)">Change contract rate<i class="fa fa-spinner fa-spin" style="display: none"></i></span></button></label>
+            <label class="col-sm-8 form-control-static action-done" style="display: none">Contract rate has been changed</label>
             <div class="col-sm-2 action-check">
                 <i class="fa fa-2x fa-square-o"></i>
             </div>
         </div>
         <div class="form-group" id="exec-step-2">
-            <label class="col-sm-2 control-label text-muted">Залогодатель</label>
-            <label class="col-sm-8 action-todo"><button type="button" class="btn btn-warning" onclick="onExecuteStep(this)">Подтвердить <i class="fa fa-spinner fa-spin" style="display: none"></i></button></label>
-            <label class="col-sm-8 form-control-static action-done" style="display: none">Подтверждено</label>
+            <label class="col-sm-2 control-label text-muted">Pledgor</label>
+            <label class="col-sm-8 action-todo"><button type="button" class="btn btn-warning" onclick="onExecuteStep(this)">Approve <i class="fa fa-spinner fa-spin" style="display: none"></i></button></label>
+            <label class="col-sm-8 form-control-static action-done" style="display: none">Approved</label>
             <div class="col-sm-2">
                 <i class="fa fa-2x fa-square-o"></i>
             </div>
         </div>
         <div class="form-group" id="exec-step-3">
             <label class="col-sm-2 control-label text-muted">Росреестр</label>
-            <label class="col-sm-8 action-todo"><button type="button" class="btn btn-success" onclick="onExecuteStep(this)">Подтвердить <i class="fa fa-spinner fa-spin" style="display: none"></i></button></label>
-            <label class="col-sm-8 form-control-static action-done" style="display: none">Подтверждено</label>
+            <label class="col-sm-8 action-todo"><button type="button" class="btn btn-success" onclick="onExecuteStep(this)">Approve <i class="fa fa-spinner fa-spin" style="display: none"></i></button></label>
+            <label class="col-sm-8 form-control-static action-done" style="display: none">Approved</label>
             <div class="col-sm-2">
                 <i class="fa fa-2x fa-square-o"></i>
             </div>
@@ -39,7 +39,7 @@
         <hr>
         <div class="form-group" id="exec-submit">
             <div class="col-sm-10 col-sm-offset-2">
-                <button type="submit" class="btn btn-success" disabled>Перейти к закрытию<span id="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
+                <button type="submit" class="btn btn-success" disabled>Finalize<span id="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
             </div>
         </div>
     </form>

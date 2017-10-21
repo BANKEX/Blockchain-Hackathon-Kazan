@@ -1,56 +1,56 @@
-# Blockchain-репозиторий закладных
+# Blockchain Mortgae Bond Registry
 
-> Конкурсный проект для хакатона "Блокчейн - новая нефть России", Казань, 27-29 августа 2017
+> Contest project for hackathon "Blockchain - the New Oil of Russia", Kazan, August 27-29, 2017
 
 ![](https://github.com/BankEx/Blockchain-Hackathon-Kazan/blob/master/Images/BankEx.jpg?raw=true)
 
 ![](https://github.com/BankEx/Blockchain-Hackathon-Kazan/blob/master/Images/BankEx-2.jpg?raw=true)
 
-## Онлайн демо
+## Online Demo
 [https://hackathon.bankexlab.com](https://hackathon.bankexlab.com)
 
-## Контракты
+## Contracts
 
 ```bash
 cd contracts/
 ```
 
-## Веб приложение
+## Web App
 
 ```bash
 сd webapp/
 ```
-### Запуск через Node.JS
+### Running using Node.JS
 
-#### Предварительная подготовка
+#### Prerequisites
 
-* Установка node/NPM https://github.com/creationix/nvm
+* Node/NPM install https://github.com/creationix/nvm
 
-#### Запуск
+#### Running
 
 ```bash
 npm install
 npm start
 ```
 
-Веб приложение будет доступно по адресу ```http://localhost:3000```
+Webapp will be available at ```http://localhost:3000```
 
-### Запуск через Docker
+### Running using Docker
 
-#### Предварительная подготовка
+#### Prerequisites
 
-* Установка Docker https://www.digitalocean.com/community/tutorials/docker-ubuntu-16-04-ru
-* Установка Docker Compose https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-16-04
+* Install Docker https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-getting-started
+* Install Docker Compose https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-16-04
 
-#### Запуск
+#### Starting
 
 ```bash
 docker-compose up -d
 ```
 
-Веб приложение будет доступно по адресу ```http://localhost:3000```
+Webapp will be available at ```http://localhost:3000```
 
-#### Остановка
+#### Stopping
 
 ```bash
 docker-compose down
