@@ -1,43 +1,45 @@
 <% layout('../layout') -%>
-<h1>Mortgage Bond Finalization<br><span class="text-muted"><%= address %></span></h1>
-<hr>
-<h2>Finalization Status</h2>
-<br>
-<div class="col-md-10 col-md-offset-1">
-    <form id="finalization" class="form-horizontal">
-        <div class="form-group" style="display: none" id="fin-step-1">
-            <label class="col-sm-2 control-label text-muted">Pawnbroker</label>
-            <label class="col-sm-8 form-control-static">Obligations repaid</label>
-            <div class="col-sm-2">
-                <i class="fa fa-2x fa-check-square-o"></i>
-            </div>
+<form id="finalization">
+    <div class="mainblock">
+        <div class="pic-check grey" id="all-done"></div>
+        <h1 class="small">Mortgage Bond Contract
+            <div class="break">0x0ecf2e79b76e0ed928aaf12b2f52eb6957c54d21</div>
+            Finalisation Status</h1>
+        <div class="max">
+            <ul class="check-list result">
+                <li>
+                    <div class="label">Pawnbroker</div>
+                    <!-- end .label-->
+                    <div class="text" id="fin-step-1">Waiting for counterparty...</div>
+                    <!-- end .text-->
+                    <div class="check-status grey"></div>
+                </li>
+                <li>
+                    <div class="label">Pledgor</div>
+                    <!-- end .label-->
+                    <div class="text" id="fin-step-2">Waiting for counterparty...</div>
+                    <!-- end .text-->
+                    <div class="check-status grey"></div>
+                </li>
+                <li>
+                    <div class="label">State Registry</div>
+                    <!-- end .label-->
+                    <div class="text" id="fin-step-3">Waiting for counterparty...</div>
+                    <!-- end .text-->
+                    <div class="check-status grey"></div>
+                </li>
+            </ul>
+            <!-- end .data-list--> 
         </div>
-        <div class="form-group" style="display: none" id="fin-step-2">
-            <label class="col-sm-2 control-label text-muted">Pledgor</label>
-            <label class="col-sm-8 form-control-static">Approved</label>
-            <div class="col-sm-2">
-                <i class="fa fa-2x fa-check-square-o"></i>
+        <!-- end .max-->
+        <div class="hr"></div>
+        <div class="max">
+            <div class="for-btn">
+                <button class="btn btn-blue" type="submit" disabled="disabled" id="btn-submit">Done</button>
             </div>
+            <!-- end .for-btn--> 
         </div>
-        <div class="form-group" style="display: none" id="fin-step-3">
-            <label class="col-sm-2 control-label text-muted">State Registry</label>
-            <label class="col-sm-8 form-control-static">Withdrawal of encumbrances</label>
-            <div class="col-sm-2">
-                <i class="fa fa-2x fa-check-square-o"></i>
-            </div>
-        </div>
-        <div class="form-group" id="fin-progress">
-            <label class="col-sm-2 control-label text-muted"></label>
-            <label class="col-sm-8 form-control-static text-muted">Waiting for сounterparty activities</label>
-            <div class="col-sm-2">
-                <i class="fa fa-spinner fa-spin"></i>
-            </div>
-        </div>
-        <hr>
-        <div class="form-group" style="display: none" id="fin-submit">
-            <div class="col-sm-10 col-sm-offset-2">
-                <button type="submit" class="btn btn-success">Done<span id="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
-            </div>
-        </div>
-    </form>
-</div>
+        <!-- end .max--> 
+    </div>
+    <!-- end .mainblock-->
+</form>

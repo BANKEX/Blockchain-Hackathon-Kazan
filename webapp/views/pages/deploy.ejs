@@ -1,49 +1,56 @@
 <% layout('../layout') -%>
-<h1>Mortgate Bond Contract Deployment</h1>
-<hr>
-<div class="col-md-10 col-md-offset-1">
-    <form id="deploy" class="form-horizontal">
-        <div class="form-group">
-            <label for="bank" class="col-sm-2 control-label">Bank</label>
-            <div class="col-sm-10">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="bank" placeholder="Адрес банка" name="bank" value="<%= bank %>">
-                    <span class="input-group-btn"><button type="button" class="btn btn-default" onclick="setMetamaskAddress(this)" title="Получить из Metamask">@</button></span>
-                </div>
-            </div>
+<form id="deploy">
+    <div class="mainblock">
+        <div class="max">
+            <h1>Mortgage Bond Contract Deployment</h1>
+            <p class="serif">We&nbsp;create mortgage bond contract. When you click on&nbsp;the button, «Deploy» mortgage is&nbsp;created. The system provides access to&nbsp;the data of&nbsp;the participants involved in&nbsp;a&nbsp;deal.</p>
+            <ul class="data-list">
+                <li>
+                    <div class="label">Pledgor
+                        <div class="help" title="Ethereum address of bank"></div>
+                    </div>
+                    <!-- end .label-->
+                    <div class="input"><a class="input-link" onclick="setMetamaskAddress(this)"><img src="/fox.svg" alt=""></a>
+                        <input id="bank" name="bank" value="<%= bank %>" type="text" placeholder="Bank Adderss">
+                    </div>
+                    <!-- end .input--> 
+                </li>
+                <li>
+                    <div class="label">Pledgee</div>
+                    <!-- end .label-->
+                    <div class="input"><a class="input-link" onclick="setMetamaskAddress(this)"><img src="/fox.svg" alt=""></a>
+                        <input id="borrower" name="borrower" value="<%= borrower %>" type="text" placeholder="Pledgee Adderss">
+                    </div>
+                    <!-- end .input--> 
+                </li>
+                <li>
+                    <div class="label">Depository</div>
+                    <!-- end .label-->
+                    <div class="input"><a class="input-link" onclick="setMetamaskAddress(this)"><img src="/fox.svg" alt=""></a>
+                        <input id="depository" name="depository" value="<%= depository %>" type="text" placeholder="Depository Adderss">
+                    </div>
+                    <!-- end .input--> 
+                </li>
+                <li>
+                    <div class="label">State Registry</div>
+                    <!-- end .label-->
+                    <div class="input"><a class="input-link" onclick="setMetamaskAddress(this)"><img src="/fox.svg" alt=""></a>
+                        <input id="registry" name="registry" value="<%= registry %>" type="text" placeholder="State Registry Adderss">
+                    </div>
+                    <!-- end .input--> 
+                </li>
+            </ul>
+            <!-- end .data-list--> 
         </div>
-        <div class="form-group">
-            <label for="borrower" class="col-sm-2 control-label">Borrower</label>
-            <div class="col-sm-10"> 
-                <div class="input-group">
-                    <input type="text" class="form-control" id="borrower" placeholder="Адрес заёмщика" name="borrower" value="<%= borrower %>">
-                    <span class="input-group-btn"><button type="button" class="btn btn-default" onclick="setMetamaskAddress(this)" title="Получить из Metamask">@</button></span>
-                </div>
+        <!-- end .max-->
+        <div class="hr"></div>
+        <div class="max">
+            <div class="for-btn">
+                <button type="submit" class="btn btn-blue">Deploy<span id="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
             </div>
+            <!-- end .for-btn--> 
         </div>
-        <div class="form-group">
-            <label for="depository" class="col-sm-2 control-label">Depository</label>
-            <div class="col-sm-10">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="depository" placeholder="Адрес депозитария" name="depository" value="<%= depository %>">
-                    <span class="input-group-btn"><button type="button" class="btn btn-default" onclick="setMetamaskAddress(this)" title="Получить из Metamask">@</button></span>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="depository" class="col-sm-2 control-label">State Registry</label>
-            <div class="col-sm-10">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="registry" placeholder="Адрес Росреестра" name="registry" value="<%= registry %>">
-                    <span class="input-group-btn"><button type="button" class="btn btn-default" onclick="setMetamaskAddress(this)" title="Получить из Metamask">@</button></span>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="form-group">
-            <div class="col-sm-10 col-sm-offset-2">
-                <button type="submit" class="btn btn-success">Deploy<span id="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
-            </div>
-        </div>
-    </form>
-</div>
+        <!-- end .max--> 
+    </div>
+    <!-- end .mainblock-->
+</form>

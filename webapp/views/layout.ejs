@@ -1,21 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title><%= title %></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="/main.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title><%= title %></title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="/css.css" rel="stylesheet" type="text/css">
+	<link href="/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="container">
-        <%- body -%>
-    </div>
-
-    <div class="bankex-logo"></div>
-
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="/scripts.js"></script>
+	<div class="mainwrap">
+		<div class="bg-top"></div>
+		<header class="header">
+			<div class="container">
+				<div class="logo"><img src="/logo.svg" alt=""></div>
+				<!-- end .logo-->
+				<h2>Mortgage Bond Contract Demo</h2>
+			</div>
+			<!-- end .container--> 
+		</header>
+		<!-- end .header-->
+		<div class="wrapper">
+			<div class="container">
+				<%- body -%>
+			</div>
+			<!-- end .container--> 
+		</div>
+		<!-- end .wrapper-->
+		<footer class="footer">
+			<div class="container">
+				<div>© 2017 BANKEX</div>
+				<div>Go to <a href="https://bankex.com">bankex.com</a></div>
+			</div>
+			<!-- end .container--> 
+		</footer>
+		<!-- end .footer--> 
+	</div>
+	<!-- end .mainwrap-->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="/scripts.js"></script>
 </body>
 </html>

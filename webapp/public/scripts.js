@@ -9,33 +9,12 @@ $("document").ready(function () {
             indexed_array[n['name']] = n['value'];
         });
 
-        $("#spinner").show();
-
         $.ajax({ url: '/api/v1/contracts/deploy', type: 'POST', contentType: 'application/json', data: JSON.stringify(indexed_array), success: function (data) {
-            $("#spinner").hide();
-
             localStorage.setItem('address', data.address);
 
             window.location = "/execution/" + data.address;
         }});
     });
-
-    // setTimeout(function () {
-    //     $("#exec-step-2").show();
-    // }, 4000);
-
-    // setTimeout(function () {
-    //     $("#exec-step-3").show();
-    // }, 6000);
-
-    // setTimeout(function () {
-    //     $("#exec-step-4").show();
-    // }, 7000);
-
-    // setTimeout(function () {
-    //     $("#exec-progress").hide();
-    //     $("#exec-submit").show();
-    // }, 9000);
 
     $("form#execution").submit(function (event) {
         event.preventDefault();
@@ -52,27 +31,23 @@ $("document").ready(function () {
     });
 
     setTimeout(function () {
-        $("#fin-step-1").show();
-    }, 8000);
+        $("#fin-step-1").text("Obligations repaid").next().removeClass("grey").addClass("green");
+    }, 4000);
 
     setTimeout(function () {
-        $("#fin-step-2").show();
-    }, 12000);
+        $("#fin-step-2").text("Approved").next().removeClass("grey").addClass("green");
+    }, 9000);
 
     setTimeout(function () {
-        $("#fin-step-3").show();
-        $("#fin-progress").hide();
-        $("#fin-submit").show();
-    }, 18000);
+        $("#fin-step-3").text("Withdrawal of encumbrances").next().removeClass("grey").addClass("green");
+        $("#btn-submit").prop("disabled", false);
+        $("#all-done").removeClass("grey").addClass("green");
+    }, 14000);
 
     $("form#finalization").submit(function (event) {
         event.preventDefault();
 
-        $("#spinner").show();
-
         setTimeout(function () {
-            $("#spinner").hide();
-
             window.location = window.location = "/end/" + localStorage.getItem('address');
         }, 2000 + Math.random(1000));
     });
@@ -81,19 +56,19 @@ $("document").ready(function () {
 var stepsDone = 0;
 
 function onExecuteStep(el) {
-    var spinner = $(el).find('.fa');
-    var actionTodo = $(el).parent();
-    var actionDone = $(el).parent().next();
-    var checkbox = $(el).parent().parent().find('.fa-square-o');
-    var submit = $(el).parent().parent().parent().find('button[type=submit]')
+    var button = $(el);
+    var actionTodo = button.parent();
+    var actionDone = actionTodo.next();
+    var checkbox = actionDone.next();
+    var submit = $("#btn-submit")
 
-    spinner.show();
+    button.prop("disabled", true);
+    button.text("Mining...");
 
     setTimeout(function () {
-        spinner.hide();
         actionTodo.hide();
         actionDone.show();
-        checkbox.removeClass('fa-square-o').addClass('fa-check-square-o');
+        checkbox.removeClass('grey').addClass('green');
 
         if (++stepsDone >= 3)
             submit.prop("disabled", false);
@@ -101,6 +76,6 @@ function onExecuteStep(el) {
 }
 
 function setMetamaskAddress(el) {
-    var input = $(el).parent().prev();
+    var input = $(el).next();
     var address = web3.eth.getAccounts(function (err, accounts) { input.val(accounts[0]); });
 }

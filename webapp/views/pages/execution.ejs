@@ -1,46 +1,63 @@
 <% layout('../layout') -%>
-<h1>Mortgage Bond Contract Execution<br><span class="text-muted"><%= address %></span></h1>
-<hr>
-<h2>Current Status</h2>
-<br>
-<div class="col-md-10 col-md-offset-1">
-    <form id="execution" class="form-horizontal">
-        <div class="form-group">
-            <label class="col-sm-2 control-label text-muted">Originator</label>
-            <label class="col-sm-8 form-control-static">Contract deployed at <%= address %></label>
-            <div class="col-sm-2">
-                <i class="fa fa-2x fa-check-square-o"></i>
-            </div>
+<form id="execution">
+    <div class="mainblock">
+        <div class="pic-check green"></div>
+        <h1 class="small">Mortgage Bond Contract
+            <div class="break">0x0ecf2e79b76e0ed928aaf12b2f52eb6957c54d21</div>
+            has been successfully created!</h1>
+        <div class="max">
+            <p class="serif center">You can make changes and approve them:</p>
+            <ul class="check-list">
+                <li>
+                    <div class="label">Originator </div>
+                    <!-- end .label-->
+                    <div class="text"><strong>Contract deployed at</strong>
+                        <div class="break"><%= address %></div>
+                    </div>
+                    <!-- end .text-->
+                    <div class="check-status green"></div>
+                </li>
+                <li>
+                    <div class="label">Pledgee
+                        <div class="help" title="Could change Interest Rate"></div>
+                    </div>
+                    <!-- end .label-->
+                    <div class="text action-todo"><a class="btn btn-small btn-border" onclick="onExecuteStep(this)">Change Contract Rate</a></div>
+                    <!-- end .text-->
+                    <div class="text action-done" style="display: none;">Contract rate has been changed</div>
+                    <!-- end .text-->
+                    <div class="check-status grey"></div>
+                </li>
+                <li>
+                    <div class="label">Pledgor</div>
+                    <!-- end .label-->
+                    <div class="text"><a class="btn btn-small btn-border" onclick="onExecuteStep(this)">Approve</a></div>
+                    <!-- end .text-->
+                    <div class="text action-done" style="display: none;">Approved</div>
+                    <!-- end .text-->
+                    <div class="check-status grey"></div>
+                </li>
+                <li>
+                    <div class="label">State Registry</div>
+                    <!-- end .label-->
+                    <div class="text"><a class="btn btn-small btn-border" onclick="onExecuteStep(this)">Approve</a></div>
+                    <!-- end .text-->
+                    <div class="text action-done" style="display: none;">Approved</div>
+                    <!-- end .text-->
+                    <div class="check-status grey"></div>
+                </li>
+            </ul>
+            <!-- end .data-list--> 
         </div>
-        <div class="form-group" id="exec-step-1">
-            <label class="col-sm-2 control-label text-muted">Pledgee</label>
-            <label class="col-sm-8 action-todo"><button type="button" class="btn btn-info" onclick="onExecuteStep(this)">Change contract rate<i class="fa fa-spinner fa-spin" style="display: none"></i></span></button></label>
-            <label class="col-sm-8 form-control-static action-done" style="display: none">Contract rate has been changed</label>
-            <div class="col-sm-2 action-check">
-                <i class="fa fa-2x fa-square-o"></i>
+        <!-- end .max-->
+        <div class="hr"></div>
+        <div class="max">
+            <div class="for-btn">
+                <button class="btn btn-blue" type="submit" disabled="disabled" id="btn-submit">Finalize</button>
             </div>
+            <!-- end .for-btn--> 
         </div>
-        <div class="form-group" id="exec-step-2">
-            <label class="col-sm-2 control-label text-muted">Pledgor</label>
-            <label class="col-sm-8 action-todo"><button type="button" class="btn btn-warning" onclick="onExecuteStep(this)">Approve <i class="fa fa-spinner fa-spin" style="display: none"></i></button></label>
-            <label class="col-sm-8 form-control-static action-done" style="display: none">Approved</label>
-            <div class="col-sm-2">
-                <i class="fa fa-2x fa-square-o"></i>
-            </div>
-        </div>
-        <div class="form-group" id="exec-step-3">
-            <label class="col-sm-2 control-label text-muted">State Registry</label>
-            <label class="col-sm-8 action-todo"><button type="button" class="btn btn-success" onclick="onExecuteStep(this)">Approve <i class="fa fa-spinner fa-spin" style="display: none"></i></button></label>
-            <label class="col-sm-8 form-control-static action-done" style="display: none">Approved</label>
-            <div class="col-sm-2">
-                <i class="fa fa-2x fa-square-o"></i>
-            </div>
-        </div>
-        <hr>
-        <div class="form-group" id="exec-submit">
-            <div class="col-sm-10 col-sm-offset-2">
-                <button type="submit" class="btn btn-success" disabled>Finalize<span id="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
-            </div>
-        </div>
-    </form>
-</div>
+        <!-- end .max--> 
+    </div>
+    <!-- end .mainblock-->
+</form>
